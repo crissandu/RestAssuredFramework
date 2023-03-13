@@ -37,20 +37,15 @@ public class StepDefinitions extends Utils {
     public void user_calls_with_post_http_request(String resource) {
         APIResources resourceAPI = APIResources.valueOf(resource);
         System.out.println(resourceAPI.getResource());
-//        response = res.when().post(resourceAPI.getResource())
-//                .then().spec(resspec).extract().response();
+        response = res.when().post(resourceAPI.getResource())
+                .then().spec(resspec).extract().response();
 
     }
 
     @Then("The API call is successful with Status Code {int}")
-    public void the_api_call_is_successful_with_status_code(Integer int1) {
-        assertEquals(200, response.getStatusCode());
+    public void the_api_call_is_successful_with_status_code(int statusCode) {
+        assertEquals(statusCode, response.getStatusCode());
 
-    }
-
-    @Then("{string} in response body is {string}")
-    public void in_response_body_is(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
     }
 
     @And("{string} is in response body is {string}")
@@ -69,9 +64,5 @@ public class StepDefinitions extends Utils {
 
     }
 
-    @When("User Calls {string} with {string} http request")
-    public void userCallsWithHttpRequest(String api, String httpMethod) {
 
-
-    }
 }

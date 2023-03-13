@@ -1,6 +1,6 @@
 Feature: Validating Place APIs
-  @AddPlace
 
+  @AddPlace
   Scenario Outline: Verify if Place is being successfully added using addPlaceAPI
     Given Add Place Payload with "<name>" "<language>" "<address>"
     When User Calls "AddPlaceAPI" with Post http request
